@@ -1,0 +1,13 @@
+{
+  "name": "habla-fluido-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Proxy que protege la llave de la IA del tutor de Habla Fluido",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
