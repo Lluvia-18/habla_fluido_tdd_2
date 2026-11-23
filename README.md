@@ -1,32 +1,8 @@
 # Habla Fluido
 
-Aplicación móvil desarrollada con Flutter para practicar inglés mediante un plan diario personalizado, ejercicios de pronunciación, lectura, escritura, conversación y repaso espaciado.
 
-**Autora:** Lluvia Villanueva — GitHub: [Lluvia-18](https://github.com/Lluvia-18)
+**Autora:** Lluvia Villanueva 
 
-## Aplicación terminada
-
-La pantalla principal distribuye una sesión de 20 minutos entre cinco habilidades. La habilidad con menor dominio recibe un bloque de refuerzo y el progreso se conserva en el dispositivo.
-
-<p align="center">
-  <img src="docs/images/tdd/app-final.png" alt="Habla Fluido ejecutándose en Android" width="360">
-</p>
-
-## Funcionalidades
-
-- Plan diario de escucha, pronunciación, lectura, escritura y conversación.
-- Seguimiento de nivel MCER, dominio por habilidad y racha diaria.
-- Comparación de pronunciación palabra por palabra.
-- Repaso espaciado mediante una adaptación del algoritmo SM-2.
-- Tutor simulado que funciona sin conexión y tutor remoto opcional.
-- Persistencia local del progreso.
-- Síntesis y reconocimiento de voz mediante los servicios del dispositivo.
-
-## Desarrollo guiado por pruebas
-
-La entrega original no incluía una carpeta `test`. Para verificar sus reglas reales se agregó una suite de **26 pruebas automatizadas**, organizada en **nueve ciclos TDD**. En cada ciclo se conserva la evidencia de la fase roja —la prueba falla porque falta la implementación— y la fase verde —la implementación satisface el comportamiento esperado—.
-
-Todas las capturas muestran el código, la terminal integrada de Visual Studio Code y la identidad Git `Lluvia-18`.
 
 ### Ciclo 1 — Comparador de pronunciación
 
@@ -142,35 +118,10 @@ El resultado final de la suite es **26 pruebas aprobadas**.
 
 ![Ejecución completa de las pruebas](docs/images/tdd/10-todas-las-pruebas-verde.png)
 
-## Casos cubiertos
 
-| Archivo | Pruebas | Responsabilidad |
-| --- | ---: | --- |
-| `comparador_test.dart` | 4 | Normalización, Levenshtein y comparación de frases |
-| `progreso_plan_test.dart` | 6 | Progreso, racha, plan diario y nivel |
-| `repaso_test.dart` | 6 | Algoritmo SM-2 y persistencia de tarjetas |
-| `tutor_aprendizaje_test.dart` | 4 | Tutor, ViewModel y almacenamiento |
-| `lectura_voz_validacion_test.dart` | 6 | Lectura, voz y validación segura del tutor |
-| **Total** | **26** | **Suite completa** |
+## Aplicación terminada
 
-## Ejecutar el proyecto
+<p align="center">
+  <img src="docs/images/tdd/app-final.png" alt="Habla Fluido ejecutándose en Android" width="360">
+</p>
 
-Requisitos: Flutter SDK, Android SDK y un emulador o teléfono Android.
-
-```powershell
-flutter pub get
-flutter analyze
-flutter test
-flutter run
-```
-
-## Resultado verificado
-
-- `flutter analyze`: sin problemas.
-- `flutter test`: 26 pruebas aprobadas.
-- APK de depuración compilado correctamente.
-- Aplicación instalada y ejecutada en `emulator-5554` con Android 16.
-
-## Privacidad
-
-El reconocimiento de voz utiliza el servicio de voz del sistema operativo; el audio puede ser procesado por el proveedor del dispositivo. La aplicación debe informar esta condición al estudiante antes de usar el micrófono. El tutor simulado no requiere internet.
