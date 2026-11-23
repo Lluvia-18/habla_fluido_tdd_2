@@ -24,7 +24,7 @@ La pantalla principal distribuye una sesión de 20 minutos entre cinco habilidad
 
 ## Desarrollo guiado por pruebas
 
-La entrega original no incluía una carpeta `test`. Para verificar sus reglas reales se agregó una suite de **20 pruebas automatizadas**, organizada en cuatro ciclos TDD. En cada ciclo se conserva la evidencia de la fase roja —la prueba falla porque falta la implementación— y la fase verde —la implementación satisface el comportamiento esperado—.
+La entrega original no incluía una carpeta `test`. Para verificar sus reglas reales se agregó una suite de **26 pruebas automatizadas**, organizada en **nueve ciclos TDD**. En cada ciclo se conserva la evidencia de la fase roja —la prueba falla porque falta la implementación— y la fase verde —la implementación satisface el comportamiento esperado—.
 
 Todas las capturas muestran el código, la terminal integrada de Visual Studio Code y la identidad Git `Lluvia-18`.
 
@@ -40,9 +40,9 @@ Se verifican la normalización del texto, distancia de Levenshtein, similitud, p
 
 ![Fase verde del comparador](docs/images/tdd/01-comparador-verde.png)
 
-### Ciclo 2 — Progreso y plan diario
+### Ciclo 2 — Seguimiento del progreso
 
-Se prueban el promedio móvil del dominio, los límites de puntaje, la racha, la distribución exacta de 20 minutos, la persistencia y el cambio de nivel.
+Se prueban el promedio móvil del dominio, los límites de puntaje, la racha, la persistencia y el cambio de nivel.
 
 #### Fase roja
 
@@ -64,9 +64,9 @@ Se validan la conversión de puntaje a calidad, los intervalos de uno y seis dí
 
 ![Fase verde del repaso espaciado](docs/images/tdd/03-repaso-verde.png)
 
-### Ciclo 4 — Tutor y aprendizaje
+### Ciclo 4 — Tutor simulado
 
-Se comprueban las correcciones del tutor, la generación de una pregunta nueva, el registro de intentos, la creación de tarjetas y la carga del progreso guardado.
+Se comprueban las correcciones de errores frecuentes en inglés y la generación de una nueva pregunta de conversación.
 
 #### Fase roja
 
@@ -76,11 +76,71 @@ Se comprueban las correcciones del tutor, la generación de una pregunta nueva, 
 
 ![Fase verde del tutor y aprendizaje](docs/images/tdd/04-tutor-aprendizaje-verde.png)
 
+### Ciclo 5 — Plan diario
+
+Se verifica que las cinco habilidades estén presentes, que la sesión sume exactamente 20 minutos y que la habilidad más débil reciba refuerzo.
+
+#### Fase roja
+
+![Fase roja del plan diario](docs/images/tdd/05-plan-diario-roja.png)
+
+#### Fase verde
+
+![Fase verde del plan diario](docs/images/tdd/05-plan-diario-verde.png)
+
+### Ciclo 6 — Persistencia y ViewModel de aprendizaje
+
+Se valida el registro de intentos, la creación de tarjetas de repaso, el guardado y la recuperación del progreso.
+
+#### Fase roja
+
+![Fase roja del ViewModel de aprendizaje](docs/images/tdd/06-aprendizaje-roja.png)
+
+#### Fase verde
+
+![Fase verde del ViewModel de aprendizaje](docs/images/tdd/06-aprendizaje-verde.png)
+
+### Ciclo 7 — Catálogo de lectura
+
+Se comprueba el filtrado de lecturas por nivel MCER y que todas las preguntas tengan un índice de respuesta válido.
+
+#### Fase roja
+
+![Fase roja del catálogo de lectura](docs/images/tdd/07-lectura-roja.png)
+
+#### Fase verde
+
+![Fase verde del catálogo de lectura](docs/images/tdd/07-lectura-verde.png)
+
+### Ciclo 8 — Voz simulada
+
+Se verifican el texto pronunciado, la velocidad utilizada y el orden de las respuestas programadas para las prácticas orales.
+
+#### Fase roja
+
+![Fase roja de voz simulada](docs/images/tdd/08-voz-roja.png)
+
+#### Fase verde
+
+![Fase verde de voz simulada](docs/images/tdd/08-voz-verde.png)
+
+### Ciclo 9 — Validación segura de respuestas del tutor
+
+Se comprueba que el JSON válido sea aceptado incluso si llega envuelto en texto y que una respuesta inválida sea rechazada.
+
+#### Fase roja
+
+![Fase roja de validación del tutor](docs/images/tdd/09-validacion-tutor-roja.png)
+
+#### Fase verde
+
+![Fase verde de validación del tutor](docs/images/tdd/09-validacion-tutor-verde.png)
+
 ## Ejecución completa
 
-El resultado final de la suite es **20 pruebas aprobadas**.
+El resultado final de la suite es **26 pruebas aprobadas**.
 
-![Ejecución completa de las pruebas](docs/images/tdd/05-todas-las-pruebas-verde.png)
+![Ejecución completa de las pruebas](docs/images/tdd/10-todas-las-pruebas-verde.png)
 
 ## Casos cubiertos
 
@@ -90,7 +150,8 @@ El resultado final de la suite es **20 pruebas aprobadas**.
 | `progreso_plan_test.dart` | 6 | Progreso, racha, plan diario y nivel |
 | `repaso_test.dart` | 6 | Algoritmo SM-2 y persistencia de tarjetas |
 | `tutor_aprendizaje_test.dart` | 4 | Tutor, ViewModel y almacenamiento |
-| **Total** | **20** | **Suite completa** |
+| `lectura_voz_validacion_test.dart` | 6 | Lectura, voz y validación segura del tutor |
+| **Total** | **26** | **Suite completa** |
 
 ## Ejecutar el proyecto
 
@@ -106,7 +167,7 @@ flutter run
 ## Resultado verificado
 
 - `flutter analyze`: sin problemas.
-- `flutter test`: 20 pruebas aprobadas.
+- `flutter test`: 26 pruebas aprobadas.
 - APK de depuración compilado correctamente.
 - Aplicación instalada y ejecutada en `emulator-5554` con Android 16.
 
