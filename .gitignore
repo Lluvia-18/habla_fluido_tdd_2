@@ -46,3 +46,6 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Copia original anidada; el proyecto ejecutable está en la raíz.
+/habla_fluido/
